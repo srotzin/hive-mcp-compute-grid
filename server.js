@@ -185,7 +185,7 @@ const SERVICE_CFG = {
   tagline: "Solver auction across io.net / Akash / Render with signed receipts.",
   description: "MCP server for HiveComputeGrid \u2014 cross-pool compute auction grid. 11 tools, 15-agent fleet, 6 driver types. Real adapters for io.net, Akash, and Render. Groth16-shaped selection proofs, $0.001 per verification. USDC settlement on Base L2. Real rails, no mocks.",
   keywords: ["mcp", "model-context-protocol", "x402", "agentic", "ai-agent", "ai-agents", "llm", "hive", "hive-civilization", "compute-grid", "auction", "verification", "groth16", "io.net", "akash", "render", "usdc", "base", "base-l2", "a2a"],
-  externalUrl: "https://hive-mcp-gateway.onrender.com/compute-grid",
+  externalUrl: "https://hive-mcp-compute-grid.onrender.com",
   gatewayMount: "/compute-grid",
   version: "1.1.1",
   pricing: [
