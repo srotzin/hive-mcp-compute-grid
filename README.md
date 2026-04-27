@@ -1,3 +1,28 @@
+<!-- HIVE_BANNER_V1 -->
+<p align="center">
+  <a href="https://hive-mcp-gateway.onrender.com/compute-grid/health">
+    <img src="https://hive-mcp-gateway.onrender.com/og.svg" alt="Hive Civilization MCP Gateway · Solver auction across io.net / Akash / Render · signed receipts" width="100%"/>
+  </a>
+</p>
+
+<h1 align="center">hive-mcp-compute-grid</h1>
+
+<p align="center"><strong>Solver auction across io.net / Akash / Render · signed receipts</strong></p>
+
+<p align="center">
+  <a href="https://smithery.ai/server/hivecivilization/hive-mcp-compute-grid"><img alt="Smithery" src="https://img.shields.io/badge/Smithery-hivecivilization%2Fhive-mcp-compute-grid-C08D23?style=flat-square"/></a>
+  <a href="https://glama.ai/mcp/servers"><img alt="Glama" src="https://img.shields.io/badge/Glama-pending-C08D23?style=flat-square"/></a>
+  <a href="https://hive-mcp-gateway.onrender.com/compute-grid/health"><img alt="Live" src="https://img.shields.io/badge/gateway-live-C08D23?style=flat-square"/></a>
+  <a href="https://github.com/srotzin/hive-mcp-compute-grid/releases"><img alt="Release" src="https://img.shields.io/github/v/release/srotzin/hive-mcp-compute-grid?style=flat-square&color=C08D23"/></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-C08D23?style=flat-square"/></a>
+</p>
+
+<p align="center">
+  <code>https://hive-mcp-gateway.onrender.com/compute-grid/mcp</code>
+</p>
+
+---
+
 # HiveComputeGrid
 
 **Cross-pool compute auction grid — 15-agent fleet, 6 driver types, Groth16-verified**
