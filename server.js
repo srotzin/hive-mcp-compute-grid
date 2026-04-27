@@ -12,6 +12,7 @@
  */
 
 import express from 'express';
+import { renderLanding, renderRobots, renderSitemap, renderSecurity, renderOgImage, seoJson, BRAND_GOLD } from './meta.js';
 
 const app = express();
 app.use(express.json({ limit: '256kb' }));
@@ -160,6 +161,25 @@ const TOOLS = [
   },
 ];
 
+
+const SERVICE_CFG = {
+  service: "hive-mcp-compute-grid",
+  shortName: "HiveComputeGrid",
+  title: "HiveComputeGrid \u00b7 Cross-Pool Compute Auction MCP",
+  tagline: "Solver auction across io.net / Akash / Render with signed receipts.",
+  description: "MCP server for HiveComputeGrid \u2014 cross-pool compute auction grid. 11 tools, 15-agent fleet, 6 driver types. Real adapters for io.net, Akash, and Render. Groth16-shaped selection proofs, $0.001 per verification. USDC settlement on Base L2. Real rails, no mocks.",
+  keywords: ["mcp", "model-context-protocol", "x402", "agentic", "ai-agent", "ai-agents", "llm", "hive", "hive-civilization", "compute-grid", "auction", "verification", "groth16", "io.net", "akash", "render", "usdc", "base", "base-l2", "a2a"],
+  externalUrl: "https://hive-mcp-gateway.onrender.com/compute-grid",
+  gatewayMount: "/compute-grid",
+  version: "1.1.1",
+  pricing: [
+    { name: "computegrid_quote", priceUsd: 0, label: "Quote \u2014 free" },
+    { name: "computegrid_solve", priceUsd: 0.001, label: "Solve auction (Tier 1)" },
+    { name: "computegrid_book", priceUsd: 0.05, label: "Book reservation (Tier 3)" },
+    { name: "computegrid_verify_proof", priceUsd: 0.001, label: "Verify proof (Tier 1)" }
+  ],
+};
+SERVICE_CFG.tools = (typeof TOOLS !== 'undefined' ? TOOLS : (typeof MCP_TOOLS !== 'undefined' ? MCP_TOOLS : [])).map(t => ({ name: t.name, description: t.description }));
 // ─── HTTP helpers ────────────────────────────────────────────────────────────
 async function hiveGet(path, params = {}) {
   const url = new URL(`${HIVE_BASE}${path.startsWith('/') ? path : '/' + path}`);
@@ -319,6 +339,24 @@ app.get('/.well-known/mcp.json', (req, res) => res.json({
   tools: TOOLS.map(t => ({ name: t.name, description: t.description })),
 }));
 
+
+// HIVE_META_BLOCK_v1 — comprehensive meta tags + JSON-LD + crawler discovery
+app.get('/', (req, res) => {
+  res.type('text/html; charset=utf-8').send(renderLanding(SERVICE_CFG));
+});
+app.get('/og.svg', (req, res) => {
+  res.type('image/svg+xml').send(renderOgImage(SERVICE_CFG));
+});
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain').send(renderRobots(SERVICE_CFG));
+});
+app.get('/sitemap.xml', (req, res) => {
+  res.type('application/xml').send(renderSitemap(SERVICE_CFG));
+});
+app.get('/.well-known/security.txt', (req, res) => {
+  res.type('text/plain').send(renderSecurity());
+});
+app.get('/seo.json', (req, res) => res.json(seoJson(SERVICE_CFG)));
 app.listen(PORT, () => {
   console.log(`HiveComputeGrid MCP Server v1.1.0 running on :${PORT}`);
   console.log(`  Backend : ${HIVE_BASE}`);

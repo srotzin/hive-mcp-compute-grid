@@ -1,7 +1,7 @@
 {
   "name": "hive-mcp-compute-grid",
-  "version": "1.1.0",
-  "description": "MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters, Groth16-shaped selection proofs), workload decomposition, verification fleet ($0.001/proof), capacity listener (read-only), QVAC mesh, settlement reporting. Real rails — no mocks.",
+  "version": "1.1.1",
+  "description": "MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters, Groth16-shaped selection proofs), workload decomposition, verification fleet ($0.001/proof), capacity listener (read-only), QVAC mesh, settlement reporting. Real rails \u2014 no mocks.",
   "type": "module",
   "main": "server.js",
   "bin": {
@@ -13,16 +13,25 @@
   },
   "keywords": [
     "mcp",
+    "model-context-protocol",
+    "x402",
+    "agentic",
+    "ai-agent",
+    "ai-agents",
+    "llm",
     "hive",
+    "hive-civilization",
     "compute-grid",
     "auction",
     "verification",
     "groth16",
-    "ai-agents",
-    "a2a",
     "io.net",
     "akash",
-    "render"
+    "render",
+    "usdc",
+    "base",
+    "base-l2",
+    "a2a"
   ],
   "author": "Steve Rotzin <steve@thehiveryiq.com> (https://www.thehiveryiq.com)",
   "license": "MIT",
