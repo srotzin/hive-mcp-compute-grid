@@ -1,6 +1,6 @@
 {
   "name": "hive-mcp-compute-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for the Hive Compute Grid. A 15-agent fleet across 6 driver types (cross-pool auction, workload decomposition, verification fleet, capacity listener, QVAC mesh orchestrator, settlement repo",
   "type": "module",
   "main": "server.js",
