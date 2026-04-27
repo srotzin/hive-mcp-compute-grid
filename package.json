@@ -1,7 +1,7 @@
 {
   "name": "hive-mcp-compute-grid",
-  "version": "1.0.1",
-  "description": "MCP server for the Hive Compute Grid. A 15-agent fleet across 6 driver types (cross-pool auction, workload decomposition, verification fleet, capacity listener, QVAC mesh orchestrator, settlement repo",
+  "version": "1.1.0",
+  "description": "MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters, Groth16-shaped selection proofs), workload decomposition, verification fleet ($0.001/proof), capacity listener (read-only), QVAC mesh, settlement reporting. Real rails — no mocks.",
   "type": "module",
   "main": "server.js",
   "bin": {
