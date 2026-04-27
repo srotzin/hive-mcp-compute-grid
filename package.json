@@ -1,0 +1,40 @@
+{
+  "name": "hive-mcp-compute-grid",
+  "version": "1.0.0",
+  "description": "MCP server for the Hive Compute Grid. A 15-agent fleet across 6 driver types (cross-pool auction, workload decomposition, verification fleet, capacity listener, QVAC mesh orchestrator, settlement repo",
+  "type": "module",
+  "main": "server.js",
+  "bin": {
+    "hive-mcp-compute-grid": "./server.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "mcp",
+    "hive",
+    "compute-grid",
+    "auction",
+    "verification",
+    "groth16",
+    "ai-agents",
+    "a2a",
+    "io.net",
+    "akash",
+    "render"
+  ],
+  "author": "Steve Rotzin <steve@thehiveryiq.com> (https://www.thehiveryiq.com)",
+  "license": "MIT",
+  "homepage": "https://github.com/srotzin/hive-mcp-compute-grid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srotzin/hive-mcp-compute-grid"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

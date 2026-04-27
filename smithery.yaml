@@ -1,0 +1,96 @@
+# Smithery Registry — HiveComputeGrid MCP Server
+# https://smithery.ai
+
+startCommand:
+  type: http
+  configSchema:
+    type: object
+    properties: {}
+    required: []
+  url: https://hivemorph.onrender.com/mcp/hive-mcp-compute-grid
+
+name: hive-mcp-compute-grid
+displayName: HiveComputeGrid — Cross-pool compute auction grid — 15-agent fleet, 6 driver types, Groth16-verified
+version: "1.0.0"
+description: >
+  MCP server for the Hive Compute Grid. A 15-agent fleet across 6 driver types (cross-pool auction, workload decomposition, verification fleet, capacity listener, QVAC mesh orchestrator, settlement reporting) bids on compute capacity from io.net, Render, Akash, Aleo provers, and any custom hMo driver. Verification fleet emits Groth16-style proofs at $0.001/proof. Capacity Listener is read-only by spec (no bids, no hedges, no derivatives — energy futures permanently rejected by R3 council).
+
+author:
+  name: Steve Rotzin
+  email: steve@thehiveryiq.com
+  url: https://www.thehiveryiq.com
+
+license: MIT
+homepage: https://github.com/srotzin/hive-mcp-compute-grid
+repository:
+  type: git
+  url: https://github.com/srotzin/hive-mcp-compute-grid
+
+transport: streamable-http
+endpoint: https://hivemorph.onrender.com/mcp
+protocol: "2024-11-05"
+
+categories:
+  - compute
+  - depin
+  - agent-to-agent
+  - infrastructure
+  - verification
+  - web3
+
+tags:
+  - mcp
+  - hive
+  - compute-grid
+  - auction
+  - verification
+  - groth16
+  - ai-agents
+  - a2a
+  - io.net
+  - akash
+  - render
+
+tools:
+- name: computegrid_list_agents
+  description: >
+    List the 15-agent compute grid fleet across all 6 driver types. Returns agent type, count, and revenue model. No auth required.
+  inputs:
+    []
+- name: computegrid_get_capacity
+  description: >
+    Read-only capacity view from the Capacity Listener fleet. Per spec section 8: NO bids, NO hedges, NO positions, NO derivatives — pure read-only telemetry.
+  inputs:
+    []
+- name: computegrid_verify_proof
+  description: >
+    Submit a compute job for verification by the Verification Fleet (4 agents). Returns Groth16-style proof. $0.001/proof in USDC.
+  inputs:
+    - name: job_id
+  type: string
+  required: true
+  description: "Job ID to verify"
+- name: driver
+  type: string
+  required: true
+  description: "Source driver: ionet | render | akash | aleo | custom"
+- name: claimed_output_hash
+  type: string
+  required: true
+  description: "SHA-256 of claimed output"
+- name: submitter_did
+  type: string
+  required: true
+  description: "DID of the submitting agent"
+
+runtime:
+  type: node
+  version: ">=18"
+  command: node server.js
+  env:
+    - name: PORT
+      default: "3000"
+      required: false
+    - name: HIVE_BASE
+      default: "https://hivemorph.onrender.com"
+      required: false
