@@ -403,6 +403,88 @@ app.get('/agent.html', (req, res) => {
   res.type('text/html; charset=utf-8').send(renderRootHtml(HIVE_AGENT_CFG));
 });
 
+
+// ─── Schema discoverability ────────────────────────────────────────────────
+const AGENT_CARD = {
+  name: SERVICE,
+  description: 'MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters), workload decomposition, verification fleet ($0.001/proof), capacity listener, QVAC mesh, settlement reporting. Real rails. New agents: first call free. Loyalty: every 6th paid call is free. Pay in USDC on Base L2.',
+  url: `https://${SERVICE}.onrender.com`,
+  provider: {
+    organization: 'Hive Civilization',
+    url: 'https://www.thehiveryiq.com',
+    contact: 'steve@thehiveryiq.com',
+  },
+  version: VERSION,
+  capabilities: {
+    streaming: false,
+    pushNotifications: false,
+    stateTransitionHistory: false,
+  },
+  authentication: {
+    schemes: ['x402'],
+    credentials: {
+      type: 'x402',
+      asset: 'USDC',
+      network: 'base',
+      asset_address: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+      recipient: '0x15184bf50b3d3f52b60434f8942b7d52f2eb436e',
+    },
+  },
+  defaultInputModes: ['application/json'],
+  defaultOutputModes: ['application/json'],
+  skills: [
+    { name: 'computegrid_list_agents', description: 'List the 15-agent compute grid fleet across all 6 driver types (cross_pool_auction, workload_decomposition, verification_fleet, capacity_listener, qvac_mesh_orchestrator, settlement_reporting). Returns agent type, count, and revenue model. No auth required.' },
+    { name: 'computegrid_get_capacity', description: 'Read-only capacity view from the Capacity Listener fleet. Per spec section 8: NO bids, NO hedges, NO positions, NO derivatives — pure read-only telemetry. Optional refresh=true triggers one upstream pull.' },
+    { name: 'computegrid_list_providers', description: 'List enabled provider adapters (io.net, Akash, Render) and their upstream health. Returns required env vars for reservation paths. Real probes, no mocks.' },
+    { name: 'computegrid_quote', description: 'Gather quotes across enabled compute providers WITHOUT running the auction (no proof, no ledger write). Useful for live price discovery on a workload.' },
+    { name: 'computegrid_solve', description: 'Run the cross-pool auction. Returns chosen provider, all collected quotes, Groth16-shaped selection proof, signed verification receipt, settlement path. Persists cost_usdc telemetry to the Hive ledger by default.' },
+    { name: 'computegrid_book', description: 'Reserve compute with the chosen provider after a /solve. Returns 503 with the missing-key error if the upstream provider key is not configured (real rails only — never fake a booking).' },
+    { name: 'computegrid_status', description: 'Poll a provider booking by booking_id. Returns 503 until /book is wired with a real provider key. The 503 body documents which env var is required.' },
+    { name: 'computegrid_release', description: 'Release a provider reservation. Same gating as /book — 503 with documented missing-key error when the provider is not fully wired.' },
+    { name: 'computegrid_audit', description: 'Read recent compute_grid_auction entries from the canonical receipt ledger — cost_usdc telemetry per cleared auction. Useful for treasury reconciliation and provenance audits.' },
+    { name: 'computegrid_verify_proof', description: 'Submit a Groth16 proof envelope + public inputs to the Verification Fleet (4 agents). Validates structure, signs an EIP-191 receipt with the Evaluator wallet. $0.001/proof in USDC.' },
+    { name: 'computegrid_verify_selection', description: 'Independently verify a selection proof envelope (e.g. from a prior /solve response). Returns the verifier’s signed receipt. Lets external auditors confirm an auction selection without trusting the broker.' },
+  ],
+  extensions: {
+    hive_pricing: {
+      currency: 'USDC',
+      network: 'base',
+      model: 'per_call',
+      first_call_free: true,
+      loyalty_threshold: 6,
+      loyalty_message: 'Every 6th paid call is free',
+    },
+  },
+};
+
+const AP2 = {
+  ap2_version: '1',
+  agent: {
+    name: SERVICE,
+    did: `did:web:${SERVICE}.onrender.com`,
+    description: 'MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters), workload decomposition, verification fleet ($0.001/proof), capacity listener, QVAC mesh, settlement reporting. Real rails. New agents: first call free. Loyalty: every 6th paid call is free. Pay in USDC on Base L2.',
+  },
+  endpoints: {
+    mcp: `https://${SERVICE}.onrender.com/mcp`,
+    agent_card: `https://${SERVICE}.onrender.com/.well-known/agent-card.json`,
+  },
+  payments: {
+    schemes: ['x402'],
+    primary: {
+      scheme: 'x402',
+      network: 'base',
+      asset: 'USDC',
+      asset_address: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+      recipient: '0x15184bf50b3d3f52b60434f8942b7d52f2eb436e',
+    },
+  },
+  brand: { color: '#C08D23', name: 'Hive Civilization' },
+};
+
+app.get('/.well-known/agent-card.json', (req, res) => res.json(AGENT_CARD));
+app.get('/.well-known/ap2.json',         (req, res) => res.json(AP2));
+
+
 app.listen(PORT, () => {
   console.log(`HiveComputeGrid MCP Server v1.1.0 running on :${PORT}`);
   console.log(`  Backend : ${HIVE_BASE}`);
