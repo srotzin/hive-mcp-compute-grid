@@ -407,7 +407,7 @@ app.get('/agent.html', (req, res) => {
 // ─── Schema discoverability ────────────────────────────────────────────────
 const AGENT_CARD = {
   name: SERVICE,
-  description: 'MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters), workload decomposition, verification fleet ($0.001/proof), capacity listener, QVAC mesh, settlement reporting. Real rails.. New agents: first call free. Loyalty: every 6th paid call is free. Pay in USDC on Base L2.',
+  description: 'MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters), workload decomposition, verification fleet ($0.001/proof), capacity listener, QVAC mesh, settlement reporting. Real rails. New agents: first call free. Loyalty: every 6th paid call is free. Pay in USDC on Base L2.',
   url: `https://${SERVICE}.onrender.com`,
   provider: {
     organization: 'Hive Civilization',
@@ -462,7 +462,7 @@ const AP2 = {
   agent: {
     name: SERVICE,
     did: `did:web:${SERVICE}.onrender.com`,
-    description: 'MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters), workload decomposition, verification fleet ($0.001/proof), capacity listener, QVAC mesh, settlement reporting. Real rails.. New agents: first call free. Loyalty: every 6th paid call is free. Pay in USDC on Base L2.',
+    description: 'MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters), workload decomposition, verification fleet ($0.001/proof), capacity listener, QVAC mesh, settlement reporting. Real rails. New agents: first call free. Loyalty: every 6th paid call is free. Pay in USDC on Base L2.',
   },
   endpoints: {
     mcp: `https://${SERVICE}.onrender.com/mcp`,
