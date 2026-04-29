@@ -404,6 +404,11 @@ app.get('/agent.html', (req, res) => {
 });
 
 
+// ─── Schema constants (auto-injected to fix deploy) ─────
+const SERVICE = 'hive-mcp-compute-grid';
+const VERSION = '1.1.2';
+
+
 // ─── Schema discoverability ────────────────────────────────────────────────
 const AGENT_CARD = {
   name: SERVICE,
