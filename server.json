@@ -1,18 +1,29 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.srotzin/hive-mcp-compute-grid",
+  "description": "MCP server: solver auction across io.net / Akash / Render with signed receipts \u00b7 Hive Civilization",
   "title": "Hive Compute Grid",
-  "description": "Distributed compute grid for autonomous agents \u2014 capacity discovery and settlement",
-  "version": "1.0.0",
-  "websiteUrl": "https://www.hiveagentiq.com",
-  "remotes": [
-    {
-      "url": "https://hive-mcp-compute-grid.onrender.com/mcp",
-      "type": "streamable-http"
-    }
-  ],
+  "websiteUrl": "https://thehiveryiq.com",
   "repository": {
     "url": "https://github.com/srotzin/hive-mcp-compute-grid",
     "source": "github"
+  },
+  "version": "1.1.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://hive-mcp-gateway.onrender.com/compute-grid/mcp"
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "tool": "hive-release-tool",
+      "version": "1.0.0",
+      "build_info": {
+        "stack": "hive-civilization",
+        "settlement": "USDC on Base",
+        "license": "MIT"
+      }
+    }
   }
 }
