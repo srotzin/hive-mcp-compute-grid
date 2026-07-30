@@ -7,7 +7,7 @@ startCommand:
     type: object
     properties: {}
     required: []
-  url: https://hivemorph.onrender.com/mcp/hive-mcp-compute-grid
+  url: https://receipts.thehiveryiq.com/mcp/hive-mcp-compute-grid
 
 name: hive-mcp-compute-grid
 displayName: HiveComputeGrid — Cross-pool compute auction grid — 15-agent fleet, 6 driver types, Groth16-verified
@@ -27,7 +27,7 @@ repository:
   url: https://github.com/srotzin/hive-mcp-compute-grid
 
 transport: streamable-http
-endpoint: https://hivemorph.onrender.com/mcp
+endpoint: https://receipts.thehiveryiq.com/mcp
 protocol: "2024-11-05"
 
 categories:
@@ -92,5 +92,5 @@ runtime:
       default: "3000"
       required: false
     - name: HIVE_BASE
-      default: "https://hivemorph.onrender.com"
+      default: "https://receipts.thehiveryiq.com"
       required: false

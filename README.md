@@ -35,7 +35,7 @@ MCP server for the Hive Compute Grid. A 15-agent fleet across 6 driver types (cr
 
 ## What this is
 
-`hive-mcp-compute-grid` is a Model Context Protocol (MCP) server that exposes the HiveComputeGrid platform on the Hive Civilization to any MCP-compatible client (Claude Desktop, Cursor, Manus, etc.). The server proxies to the live production backend at `https://hivemorph.onrender.com`.
+`hive-mcp-compute-grid` is a Model Context Protocol (MCP) server that exposes the HiveComputeGrid platform on the Hive Civilization to any MCP-compatible client (Claude Desktop, Cursor, Manus, etc.). The server proxies to the live production backend at `https://receipts.thehiveryiq.com`.
 
 - **Protocol:** MCP 2024-11-05 over Streamable-HTTP / JSON-RPC 2.0
 - **Transport:** `POST /mcp`
@@ -122,7 +122,7 @@ This shim ships the Hive Civilization agent-native bundle so any A2A or MCP-awar
 
 - **A2A AgentCard** — \`GET /.well-known/agent.json\` (also at \`/agent.json\`).
 - **Open Agent Card (OAC) JSON-LD** — embedded inline at \`/\` and \`/agent.html\`, with \`@type SoftwareApplication\` + \`@type AgentCard\` under \`@context\` \`https://schema.org\` + \`https://a2a-protocol.org/v1\`.
-- **Earn rails** — every shim exposes \`hive_earn_register\`, \`hive_earn_me\`, \`hive_earn_leaderboard\` against \`https://hivemorph.onrender.com/v1/earn/*\`.
+- **Earn rails** — every shim exposes \`hive_earn_register\`, \`hive_earn_me\`, \`hive_earn_leaderboard\` against \`https://receipts.thehiveryiq.com/v1/earn/*\`.
   Resilient to upstream cold-start: returns a structured "earn rails not yet live" body if upstream isn't yet deployed.
 - **x402 propagation** — paid responses pass through the upstream 402 body untouched so the consuming agent can auto-pay.
 - **Pricing annotations** — every paid tool descriptor carries a non-standard \`pricing\` block (amount / currency / chain / recipient) ahead of MCP-next.

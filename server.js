@@ -3,7 +3,7 @@
  * HiveComputeGrid MCP Server v1.1.0
  * Cross-pool compute auction grid — 15-agent fleet, 6 driver types, Groth16-verified.
  *
- * Backend: https://hivemorph.onrender.com
+ * Backend: https://receipts.thehiveryiq.com
  * Spec   : MCP 2024-11-05 / Streamable-HTTP / JSON-RPC 2.0
  * Brand  : Hive Civilization gold #C08D23 (Pantone 1245 C)
  *
@@ -20,7 +20,7 @@ const app = express();
 app.use(express.json({ limit: '256kb' }));
 
 const PORT = process.env.PORT || 3000;
-const HIVE_BASE = process.env.HIVE_BASE || 'https://hivemorph.onrender.com';
+const HIVE_BASE = process.env.HIVE_BASE || 'https://receipts.thehiveryiq.com';
 
 // ─── Tool definitions ────────────────────────────────────────────────────────
 
@@ -185,7 +185,7 @@ const SERVICE_CFG = {
   tagline: "Solver auction across io.net / Akash / Render with signed receipts.",
   description: "MCP server for HiveComputeGrid \u2014 cross-pool compute auction grid. 11 tools, 15-agent fleet, 6 driver types. Real adapters for io.net, Akash, and Render. Groth16-shaped selection proofs, $0.001 per verification. USDC settlement on Base L2. Real rails, no mocks.",
   keywords: ["mcp", "model-context-protocol", "x402", "agentic", "ai-agent", "ai-agents", "llm", "hive", "hive-civilization", "compute-grid", "auction", "verification", "groth16", "io.net", "akash", "render", "usdc", "base", "base-l2", "a2a"],
-  externalUrl: "https://hive-mcp-compute-grid.onrender.com",
+  externalUrl: "https://mcp-compute-grid.thehiveryiq.com",
   gatewayMount: "/compute-grid",
   version: "1.1.1",
   pricing: [
@@ -413,7 +413,7 @@ const VERSION = '1.1.2';
 const AGENT_CARD = {
   name: SERVICE,
   description: 'MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters), workload decomposition, verification fleet ($0.001/proof), capacity listener, QVAC mesh, settlement reporting. Real rails. New agents: first call free. Loyalty: every 6th paid call is free. Pay in USDC on Base L2.',
-  url: `https://${SERVICE}.onrender.com`,
+  url: `https://mcp-compute-grid.thehiveryiq.com`,
   provider: {
     organization: 'Hive Civilization',
     url: 'https://www.thehiveryiq.com',
@@ -466,12 +466,12 @@ const AP2 = {
   ap2_version: '1',
   agent: {
     name: SERVICE,
-    did: `did:web:${SERVICE}.onrender.com`,
+    did: `did:web:mcp-compute-grid.thehiveryiq.com`,
     description: 'MCP server for the Hive Compute Grid. 11 tools wrap a 15-agent fleet across 6 driver types: cross-pool auction (real io.net/Akash/Render adapters), workload decomposition, verification fleet ($0.001/proof), capacity listener, QVAC mesh, settlement reporting. Real rails. New agents: first call free. Loyalty: every 6th paid call is free. Pay in USDC on Base L2.',
   },
   endpoints: {
-    mcp: `https://${SERVICE}.onrender.com/mcp`,
-    agent_card: `https://${SERVICE}.onrender.com/.well-known/agent-card.json`,
+    mcp: `https://mcp-compute-grid.thehiveryiq.com/mcp`,
+    agent_card: `https://mcp-compute-grid.thehiveryiq.com/.well-known/agent-card.json`,
   },
   payments: {
     schemes: ['x402'],
