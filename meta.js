@@ -10,7 +10,7 @@ export const BRAND_GOLD = '#C08D23';
 export const ORG_NAME = 'Hive Civilization';
 export const AUTHOR = 'Steve Rotzin / Hive Civilization';
 export const AUTHOR_EMAIL = 'steve@thehiveryiq.com';
-export const CANONICAL_GATEWAY = 'https://hive-mcp-gateway.onrender.com';
+export const CANONICAL_GATEWAY = 'https://mcp-compute-grid.thehiveryiq.com';
 export const CANONICAL_SELF = 'https://mcp-compute-grid.thehiveryiq.com';
 
 /**
@@ -41,7 +41,7 @@ export function seoJson(cfg) {
     publisher: {
       '@type': 'Organization',
       name: ORG_NAME,
-      url: 'https://hive-mcp-gateway.onrender.com',
+      url: 'https://mcp-compute-grid.thehiveryiq.com',
     },
     author: {
       '@type': 'Person',

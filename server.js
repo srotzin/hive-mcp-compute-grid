@@ -28,11 +28,11 @@ const HIVE_BASE = process.env.HIVE_BASE || 'https://receipts.thehiveryiq.com';
 const HIVE_AGENT_CFG = {
   name: 'HiveComputeGrid MCP',
   description: "Cross-pool compute auction grid MCP server. Real io.net / Akash / Render adapters, Groth16-shaped selection proofs, signed receipts. Real Base USDC settlement.",
-  url: 'https://hive-mcp-gateway.onrender.com/compute-grid',
+  url: 'https://mcp-compute-grid.thehiveryiq.com',
   version: '1.1.2',
   repoUrl: 'https://github.com/srotzin/hive-mcp-compute-grid',
   did: 'did:hive:compute-grid',
-  gatewayUrl: 'https://hive-mcp-gateway.onrender.com',
+  gatewayUrl: 'https://mcp-compute-grid.thehiveryiq.com',
   // Tools attached at runtime (after merging earn tools in)
   tools: [],
 };

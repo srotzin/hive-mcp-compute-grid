@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://hive-mcp-gateway.onrender.com/compute-grid/mcp"
+      "url": "https://mcp-compute-grid.thehiveryiq.com/mcp"
     }
   ],
   "_meta": {
